@@ -66,11 +66,15 @@ Working from a different OS, or just want to avoid installing dependencies? You 
 You can build and execute the container by running the following command in the repository:
 
 ```bash
-chmod -R 777 .
-docker compose up
+docker compose up --build
 ```
 
-You should now be able to access the website from `localhost:4000`.
+Open `http://localhost:4000` in your browser and leave it open while editing.
+The project directory is mounted into the container: saved changes to Markdown,
+HTML, CSS, and most assets rebuild the site and refresh the browser automatically.
+The Docker command uses polling so this also works reliably with Docker Desktop on
+Windows. Changes to `_config.yml` or `docker-compose.yaml` require restarting the
+server with `docker compose down` followed by `docker compose up`.
 
 ### Using the DevContainer in VS Code
 

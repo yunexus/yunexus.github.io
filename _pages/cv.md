@@ -11,35 +11,23 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* **M.Sc. in Artificial Intelligence**, Zhengzhou University, 2025–2028 (expected)
+  * School of Computer and Artificial Intelligence
+  * Advisor: Prof. Zhijuan Jia (Second-Level Professor)
+* **B.Eng. in Data Science and Big Data Technology**, Henan Polytechnic University, 2021–2025
 
-Work experience
+Research Interests
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Trustworthy Medical AI
+* Deep Learning
+* Machine Learning
+* Computer Vision
+* Applied Cryptography
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* **Programming:** Python, Java, C
+* **Frameworks and platforms:** Spring Boot, Hadoop, Linux
 
 Publications
 ======
@@ -47,18 +35,10 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Talks
+Honors and Awards
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
+* National Second Prize, Huawei Cup China Graduate Mathematical Contest in Modeling, November 13, 2026
+
+Intellectual Property
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* **Decentralized Secure Data Auditing System for Intelligent Agents (SecuAudit) V1.0** — Software Copyright Registration No. 2026SR1154823, November 9, 2026. Copyright holder.
