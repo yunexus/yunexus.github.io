@@ -18,7 +18,7 @@ News
 
 * **November 13, 2026:** Team Leader of the project *Multimodal Emotion Prediction Based on Word-Level Temporal Alignment and Missingness-Aware Gated Fusion*, which received the National Second Prize in the Huawei Cup China Graduate Mathematical Contest in Modeling.
 
-* **August 2026:** Our paper, *SecuAudit: Integrity-Preserving Metadata Compliance Auditing for Secure Data Circulation in MCP-Enabled AI Agents*, was published in *Computers, Materials & Continua* (JCR 2025: Q3; JIF: 2.4).
+* **August 2026:** *SecuAudit: Integrity-Preserving Metadata Compliance Auditing for Secure Data Circulation in MCP-Enabled AI Agents*, was published in *Computers, Materials & Continua* (JCR Q3; IF=2.4).
 
 * **December 2025:** Joined the Henan Provincial Research Center for Data Security and Trusted Computing, focusing on trustworthy AI.
 
