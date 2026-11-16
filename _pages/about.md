@@ -20,6 +20,6 @@ News
 
 * **August 2026:** *SecuAudit: Integrity-Preserving Metadata Compliance Auditing for Secure Data Circulation in MCP-Enabled AI Agents*, was published in *Computers, Materials & Continua* (JCR Q3; IF=2.4).
 
-* **December 2025:** Joined the Henan Provincial Research Center for Data Security and Trusted Computing, focusing on trustworthy AI.
+* **December 2025:** Joined the Henan Provincial Research Center for Data Security and Trusted Computing to conduct research on trustworthy AI.
 
 * **September 1, 2025:** Began my graduate studies at Zhengzhou University and started my research journey.
