@@ -7,7 +7,7 @@ excerpt: "A decentralized privacy-enhancing auditing scheme for secure data circ
 date: 2026-08-13
 venue: "Computers, Materials & Continua"
 paperurl: "https://doi.org/10.32604/cmc.2026.085633"
-citation: 'Shi, Y.<sup>#</sup>, Hu, J.<sup>#</sup>, Wang, L., Ma, R., Wang, M., & Jia, Z. (2026). &quot;SecuAudit: Integrity-Preserving Metadata Compliance Auditing for Secure Data Circulation in MCP-Enabled AI Agents.&quot; <i>Computers, Materials & Continua</i>, 89(1), 100. https://doi.org/10.32604/cmc.2026.085633'
+citation: '<strong>Yufa Shi</strong><sup>#</sup>, Jiaxing Hu<sup>#</sup>, Lipeng Wang, Rui Ma, Mengyao Wang, Zhijuan Jia, &quot;SecuAudit: Integrity-Preserving Metadata Compliance Auditing for Secure Data Circulation in MCP-Enabled AI Agents,&quot; <i>Computers, Materials & Continua</i>, 1546-2226, August 13, 2026 (<a href="https://doi.org/10.32604/cmc.2026.085633">https://doi.org/10.32604/cmc.2026.085633</a>) <strong>(JCR Q3, IF = 2.4)</strong>'
 ---
 
 <sup>#</sup> Equal contribution.

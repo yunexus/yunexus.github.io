@@ -37,7 +37,7 @@ Publications
   
 Honors and Awards
 ======
-* National Second Prize, Huawei Cup China Graduate Mathematical Contest in Modeling, November 13, 2026
+* Team Leader, *Multimodal Emotion Prediction Based on Word-Level Temporal Alignment and Missingness-Aware Gated Fusion* — National Second Prize, Huawei Cup China Graduate Mathematical Contest in Modeling, November 13, 2026
 
 Intellectual Property
 ======
