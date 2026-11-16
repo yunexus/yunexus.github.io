@@ -19,3 +19,7 @@ News
 * **November 13, 2026:** Received the National Second Prize in the Huawei Cup China Graduate Mathematical Contest in Modeling.
 
 * **August 2026:** Our paper, *SecuAudit: Integrity-Preserving Metadata Compliance Auditing for Secure Data Circulation in MCP-Enabled AI Agents*, was published in *Computers, Materials & Continua*.
+
+* **December 2025:** Joined the Henan Provincial Research Center for Data Security and Trusted Computing, focusing on trustworthy AI.
+
+* **September 1, 2025:** Began my graduate studies at Zhengzhou University and started my research journey.
