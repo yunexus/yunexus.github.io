@@ -49,15 +49,15 @@ Install IntelliJ IDEA, choosing a location without spaces or Chinese characters 
 
 Within IntelliJ IDEA, navigate to **File → Settings → Plugins**, search for **Scala**, and install the plugin.
 
-![Installing the Scala plugin](https://i-blog.csdnimg.cn/blog_migrate/aac4f40470bb13fa956988d624e7d3eb.png)
+![Installing the Scala plugin](/images/blog/used-car/aac4f40470bb13fa956988d624e7d3eb.png)
 
 ## 1.5 VMware, Ubuntu and Hadoop
 
 This project also documents a virtualized Hadoop 2.10.2 environment. First install **VMware Workstation 17** and **Ubuntu 16**.
 
-![VMware and Ubuntu setup 1](https://i-blog.csdnimg.cn/blog_migrate/0761cad12be2fca6ad5e8118ae9a29f2.png)
+![VMware and Ubuntu setup 1](/images/blog/used-car/0761cad12be2fca6ad5e8118ae9a29f2.png)
 
-![VMware and Ubuntu setup 2](https://i-blog.csdnimg.cn/blog_migrate/57e2d270afb092f6c8da01105e0970ed.png)
+![VMware and Ubuntu setup 2](/images/blog/used-car/57e2d270afb092f6c8da01105e0970ed.png)
 
 Log in to Ubuntu and create the `hadoop` user. The source used the following steps:
 
@@ -77,9 +77,9 @@ Install/configure the JDK and verify it:
 java -version
 ```
 
-![JDK setup and version test 1](https://i-blog.csdnimg.cn/blog_migrate/612afa9e2e684d21f104e058984413b7.png)
+![JDK setup and version test 1](/images/blog/used-car/612afa9e2e684d21f104e058984413b7.png)
 
-![JDK setup and version test 2](https://i-blog.csdnimg.cn/blog_migrate/a5296146f24ff42d85ef694356e429a5.png)
+![JDK setup and version test 2](/images/blog/used-car/a5296146f24ff42d85ef694356e429a5.png)
 
 Download Hadoop from the [Apache Hadoop website](https://hadoop.apache.org/) using Ubuntu's Firefox browser. The source uses **Hadoop 2.10.2**:
 
@@ -90,9 +90,9 @@ tar -xvf hadoop-2.10.2.tar.gz
 
 The extracted directory is `/home/hadoop/hadoop-2.10.2/`.
 
-![Downloading and extracting Hadoop 1](https://i-blog.csdnimg.cn/blog_migrate/53b32010baab07618006373fa7a295b3.png)
+![Downloading and extracting Hadoop 1](/images/blog/used-car/53b32010baab07618006373fa7a295b3.png)
 
-![Downloading and extracting Hadoop 2](https://i-blog.csdnimg.cn/blog_migrate/155356ce326999892c021b41ad5f1588.png)
+![Downloading and extracting Hadoop 2](/images/blog/used-car/155356ce326999892c021b41ad5f1588.png)
 
 Configure the environment using `/etc/profile` and reload it:
 
@@ -104,11 +104,11 @@ hadoop version
 
 The source supplies the detailed profile values in the screenshot rather than as copyable text.
 
-![Environment profile and Hadoop version output 1](https://i-blog.csdnimg.cn/blog_migrate/405c995b71be9122b1159773ca1fc643.png)
+![Environment profile and Hadoop version output 1](/images/blog/used-car/405c995b71be9122b1159773ca1fc643.png)
 
-![Environment profile and Hadoop version output 2](https://i-blog.csdnimg.cn/blog_migrate/68903b4bf20ed656902dbbb5702d328b.png)
+![Environment profile and Hadoop version output 2](/images/blog/used-car/68903b4bf20ed656902dbbb5702d328b.png)
 
-![Environment profile and Hadoop version output 3](https://i-blog.csdnimg.cn/blog_migrate/a576ad4d5f63ccdfd72767f2643acc07.png)
+![Environment profile and Hadoop version output 3](/images/blog/used-car/a576ad4d5f63ccdfd72767f2643acc07.png)
 
 # 2. Project design
 
@@ -196,17 +196,17 @@ Count vehicles within the selected year range. The original implementation descr
 
 **Data processing and analysis code screenshots:**
 
-![Yearly listing aggregation 1](https://i-blog.csdnimg.cn/blog_migrate/f53730f75a902fb331288b78c135b8c0.png)
+![Yearly listing aggregation 1](/images/blog/used-car/f53730f75a902fb331288b78c135b8c0.png)
 
-![Yearly listing aggregation 2](https://i-blog.csdnimg.cn/blog_migrate/b4cda0b8ff3faa06f14f91efc1d0e734.png)
+![Yearly listing aggregation 2](/images/blog/used-car/b4cda0b8ff3faa06f14f91efc1d0e734.png)
 
 **HTML visualization code:**
 
-![Yearly trend visualization code](https://i-blog.csdnimg.cn/blog_migrate/736989b5ce2ca22c10d64c86d09b07b7.png)
+![Yearly trend visualization code](/images/blog/used-car/736989b5ce2ca22c10d64c86d09b07b7.png)
 
 **Visualization result:**
 
-![Used-car trend bar chart](https://i-blog.csdnimg.cn/blog_migrate/042021f3e170e55b5eb0f65d98f49037.png)
+![Used-car trend bar chart](/images/blog/used-car/042021f3e170e55b5eb0f65d98f49037.png)
 
 **Original interpretation:** The observed sample peaks around **2021**, followed by a decline. The original author speculated that pandemic-related circumstances could have affected this trend. This is a sample-level observation, not proof of a market-wide causal relationship; listing counts are also not necessarily completed vehicle sales.
 
@@ -220,17 +220,17 @@ Read the mileage and price fields, order or group records by mileage, and prepar
 
 **Data-processing code:**
 
-![Mileage and price analysis code 1](https://i-blog.csdnimg.cn/blog_migrate/5e206aa8fa5c000371f319b50bac9111.png)
+![Mileage and price analysis code 1](/images/blog/used-car/5e206aa8fa5c000371f319b50bac9111.png)
 
-![Mileage and price analysis code 2](https://i-blog.csdnimg.cn/blog_migrate/8a3c179b4c72757cdfead7fe053318b4.png)
+![Mileage and price analysis code 2](/images/blog/used-car/8a3c179b4c72757cdfead7fe053318b4.png)
 
 **HTML chart code:**
 
-![Mileage-price visualization implementation](https://i-blog.csdnimg.cn/blog_migrate/a22abd2ce67d8ebdd62f4eca1434841d.png)
+![Mileage-price visualization implementation](/images/blog/used-car/a22abd2ce67d8ebdd62f4eca1434841d.png)
 
 **Visualization result:**
 
-![Mileage and vehicle price chart](https://i-blog.csdnimg.cn/blog_migrate/b21d6b428864090727bd92115eb0c6dd.png)
+![Mileage and vehicle price chart](/images/blog/used-car/b21d6b428864090727bd92115eb0c6dd.png)
 
 **Original interpretation:** The sample's lowest average listed price appeared in the **80,000–100,000 km** interval, while the highest appeared in **0–20,000 km**. Vehicle model, model year and brand may also influence prices, so this should not be interpreted as a controlled estimate of mileage's causal effect.
 
@@ -244,21 +244,21 @@ Aggregate the number of vehicles for each city/model combination and transform S
 
 **Data-processing code:**
 
-![City and vehicle model aggregation 1](https://i-blog.csdnimg.cn/blog_migrate/7cf732455427a7d7f67a07b2c80e0dde.png)
+![City and vehicle model aggregation 1](/images/blog/used-car/7cf732455427a7d7f67a07b2c80e0dde.png)
 
-![City and vehicle model aggregation 2](https://i-blog.csdnimg.cn/blog_migrate/b300f08068a56a617477b0461d94e547.png)
+![City and vehicle model aggregation 2](/images/blog/used-car/b300f08068a56a617477b0461d94e547.png)
 
 **HTML visualization code:**
 
-![3D chart implementation 1](https://i-blog.csdnimg.cn/blog_migrate/9a8b7982c9c2e25a5456adab502fe171.png)
+![3D chart implementation 1](/images/blog/used-car/9a8b7982c9c2e25a5456adab502fe171.png)
 
-![3D chart implementation 2](https://i-blog.csdnimg.cn/blog_migrate/8566528a20c5d53ecff2957b6be37432.png)
+![3D chart implementation 2](/images/blog/used-car/8566528a20c5d53ecff2957b6be37432.png)
 
-![3D chart implementation 3](https://i-blog.csdnimg.cn/blog_migrate/fed62eea8a7da18d887d8e2c633a7c0c.png)
+![3D chart implementation 3](/images/blog/used-car/fed62eea8a7da18d887d8e2c633a7c0c.png)
 
 **Visualization result:**
 
-![City and brand distribution 3D chart](https://i-blog.csdnimg.cn/blog_migrate/352dfe7cc4c9e2d8d9b55ab17313086e.png)
+![City and brand distribution 3D chart](/images/blog/used-car/352dfe7cc4c9e2d8d9b55ab17313086e.png)
 
 **Original interpretation:** Volkswagen appeared most frequently across the cities in the analyzed listings. Listing frequency does not establish completed sales volume or consumer preferences for the wider population.
 
@@ -266,9 +266,9 @@ Aggregate the number of vehicles for each city/model combination and transform S
 
 The source also documents collecting listings from [Taoche's Zhengzhou site](https://zhengzhou.taoche.com/) using Python in PyCharm. The code and resulting console output are preserved in the screenshots.
 
-![Additional Python collection code and output 1](https://i-blog.csdnimg.cn/blog_migrate/5d8b4ec0190b61f4b820650d2f5d975d.png)
+![Additional Python collection code and output 1](/images/blog/used-car/5d8b4ec0190b61f4b820650d2f5d975d.png)
 
-![Additional Python collection code and output 2](https://i-blog.csdnimg.cn/blog_migrate/8c6e2c52f634d2b50c19dde668d7f22e.png)
+![Additional Python collection code and output 2](/images/blog/used-car/8c6e2c52f634d2b50c19dde668d7f22e.png)
 
 ### Analysis 5: Local keyword search
 
@@ -276,15 +276,15 @@ Convert collected records to **JSON**, load them into an HTML page and search by
 
 **Implementation code:**
 
-![JSON search and HTML implementation 1](https://i-blog.csdnimg.cn/blog_migrate/fb7e5f61fa7483ff2c4a31e14cb276f1.png)
+![JSON search and HTML implementation 1](/images/blog/used-car/fb7e5f61fa7483ff2c4a31e14cb276f1.png)
 
-![JSON search and HTML implementation 2](https://i-blog.csdnimg.cn/blog_migrate/96ec6a3a6a139d52e26c26a9ca564bd6.png)
+![JSON search and HTML implementation 2](/images/blog/used-car/96ec6a3a6a139d52e26c26a9ca564bd6.png)
 
-![JSON search and HTML implementation 3](https://i-blog.csdnimg.cn/blog_migrate/066cb652e37ed64d02bf4001c22f7454.png)
+![JSON search and HTML implementation 3](/images/blog/used-car/066cb652e37ed64d02bf4001c22f7454.png)
 
 **HTML interface:**
 
-![Local used-car search interface](https://i-blog.csdnimg.cn/blog_migrate/5f62cf94baee16309642e2d0b505e7fb.png)
+![Local used-car search interface](/images/blog/used-car/5f62cf94baee16309642e2d0b505e7fb.png)
 
 # 4. Conclusion
 

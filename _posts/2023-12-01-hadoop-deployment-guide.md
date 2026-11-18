@@ -22,27 +22,27 @@ tags:
 
 Install **VMware Workstation 17** and **CentOS 7**, remove unnecessary virtual hardware, and choose **NAT** networking.
 
-![VM installation and network configuration 1](https://i-blog.csdnimg.cn/blog_migrate/8d91795aa0bf90f35dc3e496dbdfbbe7.png)
+![VM installation and network configuration 1](/images/blog/hadoop/8d91795aa0bf90f35dc3e496dbdfbbe7.png)
 
-![VM installation and network configuration 2](https://i-blog.csdnimg.cn/blog_migrate/fe76c93f4c773a7133cbf286e686bba6.png)
+![VM installation and network configuration 2](/images/blog/hadoop/fe76c93f4c773a7133cbf286e686bba6.png)
 
-![VM installation and network configuration 3](https://i-blog.csdnimg.cn/blog_migrate/f96038b11221b94ec847c5d43a27e8bc.png)
+![VM installation and network configuration 3](/images/blog/hadoop/f96038b11221b94ec847c5d43a27e8bc.png)
 
 At installation: (1) select **Compute Node** or **Server with GUI**; (2) assign the 20 GB virtual disk; (3) enable networking, record the IP range and gateway, and choose **Configure → IPv4 → Manual → Add** to set the static IP and DNS; then configure the hostname.
 
-![IPv4 and hostname settings 1](https://i-blog.csdnimg.cn/blog_migrate/a038f9eb6a0edc62d7a6afb062e460db.png)
+![IPv4 and hostname settings 1](/images/blog/hadoop/a038f9eb6a0edc62d7a6afb062e460db.png)
 
-![IPv4 and hostname settings 2](https://i-blog.csdnimg.cn/blog_migrate/893a5bf8e2a43920b0102a244b00fc5a.png)
+![IPv4 and hostname settings 2](/images/blog/hadoop/893a5bf8e2a43920b0102a244b00fc5a.png)
 
 Set the root password and create a **hadoop** user. The original suggested password `123` is insecure: do not use it. Use `ifconfig` or `ip a` to determine the IP address, connect using **Xshell**, power off, and create a **VMware snapshot**.
 
-![User, remote access, and snapshot 1](https://i-blog.csdnimg.cn/blog_migrate/fce0ab2c300ac21f329a2f6992674a58.png)
+![User, remote access, and snapshot 1](/images/blog/hadoop/fce0ab2c300ac21f329a2f6992674a58.png)
 
-![User, remote access, and snapshot 2](https://i-blog.csdnimg.cn/blog_migrate/dfd7996e5a62d06d1a0ca1676e5ca240.png)
+![User, remote access, and snapshot 2](/images/blog/hadoop/dfd7996e5a62d06d1a0ca1676e5ca240.png)
 
-![User, remote access, and snapshot 3](https://i-blog.csdnimg.cn/blog_migrate/fb0d706f20d636a3474355c105d306da.png)
+![User, remote access, and snapshot 3](/images/blog/hadoop/fb0d706f20d636a3474355c105d306da.png)
 
-![User, remote access, and snapshot 4](https://i-blog.csdnimg.cn/blog_migrate/3af6e790c426872cbcd512fc12d2a94d.png)
+![User, remote access, and snapshot 4](/images/blog/hadoop/3af6e790c426872cbcd512fc12d2a94d.png)
 
 ## 1.2 Basic Linux configuration
 
@@ -54,11 +54,11 @@ vi /etc/sysconfig/network-scripts/ifcfg-ens33
 vi /etc/hosts
 ```
 
-![Hostname, network adapter, and hosts file 1](https://i-blog.csdnimg.cn/blog_migrate/66af6eb1b881c7954deb0f5671f44669.png)
+![Hostname, network adapter, and hosts file 1](/images/blog/hadoop/66af6eb1b881c7954deb0f5671f44669.png)
 
-![Hostname, network adapter, and hosts file 2](https://i-blog.csdnimg.cn/blog_migrate/9dce45a0f62b484e008c07b4ba5aa9a0.png)
+![Hostname, network adapter, and hosts file 2](/images/blog/hadoop/9dce45a0f62b484e008c07b4ba5aa9a0.png)
 
-![Hostname, network adapter, and hosts file 3](https://i-blog.csdnimg.cn/blog_migrate/b85d6dec0c3317eeedb6ecaeca6694b6.png)
+![Hostname, network adapter, and hosts file 3](/images/blog/hadoop/b85d6dec0c3317eeedb6ecaeca6694b6.png)
 
 In the original isolated lab, the firewall and SELinux were disabled, followed by a reboot:
 
@@ -68,7 +68,7 @@ vi /etc/selinux/config
 reboot
 ```
 
-![SELinux configuration](https://i-blog.csdnimg.cn/blog_migrate/39012b9b12604f17ad1484feb1b0f023.png)
+![SELinux configuration](/images/blog/hadoop/39012b9b12604f17ad1484feb1b0f023.png)
 
 For real deployments, configure narrow firewall exceptions and suitable access policies instead.
 
@@ -81,9 +81,9 @@ tar -zxf hadoop-3.3.1.tar.gz
 tar -zxf jdk-8u333-linux-x64.tar.gz
 ```
 
-![File transfer and extracted packages 1](https://i-blog.csdnimg.cn/blog_migrate/9d966586d19ed812e1b2234da8dea24.png)
+![File transfer and extracted packages 1](/images/blog/hadoop/9d966586d19ed812e1b2234da8dea24.png)
 
-![File transfer and extracted packages 2](https://i-blog.csdnimg.cn/blog_migrate/f352cf1725be12fc5f8ff8e1dfa71ceb.png)
+![File transfer and extracted packages 2](/images/blog/hadoop/f352cf1725be12fc5f8ff8e1dfa71ceb.png)
 
 The original notes use `/home/hadoop/program/hadoop-3.3` and `/home/hadoop/program/jdk-1.8` as installation paths; check that these directories actually exist after extraction or renaming.
 
@@ -98,9 +98,9 @@ hadoop version
 
 Persist these `export` statements in `~/.bashrc` and run `source ~/.bashrc`.
 
-![Version checks and shell profile 1](https://i-blog.csdnimg.cn/blog_migrate/69bad61eba38cc74c6af7c4812e62543.png)
+![Version checks and shell profile 1](/images/blog/hadoop/69bad61eba38cc74c6af7c4812e62543.png)
 
-![Version checks and shell profile 2](https://i-blog.csdnimg.cn/blog_migrate/323603e32af7d9d739ad1cc45d75e793.png)
+![Version checks and shell profile 2](/images/blog/hadoop/323603e32af7d9d739ad1cc45d75e793.png)
 
 ## 1.4 Hadoop configuration and local mode
 
@@ -113,9 +113,9 @@ vi hdfs-site.xml
 
 The original configuration values appear in these screenshots, rather than in copyable text. Verify all XML values against your own IPs and paths.
 
-![core-site.xml and hdfs-site.xml 1](https://i-blog.csdnimg.cn/blog_migrate/50921c7ab4242cf07fee008abeb42e48.png)
+![core-site.xml and hdfs-site.xml 1](/images/blog/hadoop/50921c7ab4242cf07fee008abeb42e48.png)
 
-![core-site.xml and hdfs-site.xml 2](https://i-blog.csdnimg.cn/blog_migrate/fb5eedff1a43d0c813da3f59af04791a.png)
+![core-site.xml and hdfs-site.xml 2](/images/blog/hadoop/fb5eedff1a43d0c813da3f59af04791a.png)
 
 Enable SSH to the local machine:
 
@@ -135,7 +135,7 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.1.jar grep i
 cat output/*
 ```
 
-![Local-mode test](https://i-blog.csdnimg.cn/blog_migrate/b545770ed0466e2e6f7eac931c5373a3.png)
+![Local-mode test](/images/blog/hadoop/b545770ed0466e2e6f7eac931c5373a3.png)
 
 ## 1.5 Pseudo-distributed HDFS
 
@@ -156,11 +156,11 @@ cat output/*
 
 The original NameNode web UI was `http://192.168.109.128:9870/` (an example local-network address). **Never reformat a NameNode containing data.** Repeating `mkdir` or job commands without cleaning outputs can cause “already exists” errors.
 
-![HDFS and MapReduce test results 1](https://i-blog.csdnimg.cn/blog_migrate/04251bb050c47cf0790780e5888957b2.png)
+![HDFS and MapReduce test results 1](/images/blog/hadoop/04251bb050c47cf0790780e5888957b2.png)
 
-![HDFS and MapReduce test results 2](https://i-blog.csdnimg.cn/blog_migrate/ecc1341d099c99eeeb6063e0677a905e.png)
+![HDFS and MapReduce test results 2](/images/blog/hadoop/ecc1341d099c99eeeb6063e0677a905e.png)
 
-![HDFS and MapReduce test results 3](https://i-blog.csdnimg.cn/blog_migrate/39085f13f9fa64652b0d66e354feab4b.png)
+![HDFS and MapReduce test results 3](/images/blog/hadoop/39085f13f9fa64652b0d66e354feab4b.png)
 
 ## 1.6 Pseudo-distributed Hadoop with YARN
 
@@ -174,9 +174,9 @@ export HADOOP_MAPRED_HOME=$HADOOP_HOME
 source ~/.bashrc
 ```
 
-![MapReduce and YARN configuration 1](https://i-blog.csdnimg.cn/blog_migrate/dbd7575f44ff1e5fd6d752b2d2265173.png)
+![MapReduce and YARN configuration 1](/images/blog/hadoop/dbd7575f44ff1e5fd6d752b2d2265173.png)
 
-![MapReduce and YARN configuration 2](https://i-blog.csdnimg.cn/blog_migrate/03f16fbd93068a25b964f03e9356af83.png)
+![MapReduce and YARN configuration 2](/images/blog/hadoop/03f16fbd93068a25b964f03e9356af83.png)
 
 ```bash
 cd "$HADOOP_HOME"
@@ -220,11 +220,11 @@ stop-yarn.sh
 stop-dfs.sh
 ```
 
-![SSH and distributed parameters 1](https://i-blog.csdnimg.cn/blog_migrate/afe75b08646a04e85e63a6299782be48.png)
+![SSH and distributed parameters 1](/images/blog/hadoop/afe75b08646a04e85e63a6299782be48.png)
 
-![SSH and distributed parameters 2](https://i-blog.csdnimg.cn/blog_migrate/6f9f96320e7db81e7579d67dfa7d97c3.png)
+![SSH and distributed parameters 2](/images/blog/hadoop/6f9f96320e7db81e7579d67dfa7d97c3.png)
 
-![SSH and distributed parameters 3](https://i-blog.csdnimg.cn/blog_migrate/c9dab793fccc45e7d91cc09e8b76bedb.png)
+![SSH and distributed parameters 3](/images/blog/hadoop/c9dab793fccc45e7d91cc09e8b76bedb.png)
 
 Edit the `workers` file and distributed `yarn-site.xml`:
 
@@ -233,9 +233,9 @@ vi workers
 vi yarn-site.xml
 ```
 
-![Worker nodes and YARN configuration 1](https://i-blog.csdnimg.cn/blog_migrate/5e59e2b53fa9b5cbc5ca2d76e3710800.png)
+![Worker nodes and YARN configuration 1](/images/blog/hadoop/5e59e2b53fa9b5cbc5ca2d76e3710800.png)
 
-![Worker nodes and YARN configuration 2](https://i-blog.csdnimg.cn/blog_migrate/94be218703e4ad67033d4c0b21d048dc.png)
+![Worker nodes and YARN configuration 2](/images/blog/hadoop/94be218703e4ad67033d4c0b21d048dc.png)
 
 Distribute software and profile files from bd0:
 
@@ -261,9 +261,9 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.1.jar grep i
 bin/hdfs dfs -cat output/*
 ```
 
-![Cluster output and web interface (port 8080) 1](https://i-blog.csdnimg.cn/blog_migrate/bfe9d22662a1693d86f9c42dda684151.png)
+![Cluster output and web interface (port 8080) 1](/images/blog/hadoop/bfe9d22662a1693d86f9c42dda684151.png)
 
-![Cluster output and web interface (port 8080) 2](https://i-blog.csdnimg.cn/blog_migrate/a549c496a68bc7ab4688be2eb9ad8811.png)
+![Cluster output and web interface (port 8080) 2](/images/blog/hadoop/a549c496a68bc7ab4688be2eb9ad8811.png)
 
 ## 1.8 Install Spark and Scala
 
@@ -281,7 +281,7 @@ The original installation paths were:
 /home/hadoop/program/scala-2.12.15
 ```
 
-![Spark and Scala directories](https://i-blog.csdnimg.cn/blog_migrate/f9ed5e997229b650d780123bae8dc402.png)
+![Spark and Scala directories](/images/blog/hadoop/f9ed5e997229b650d780123bae8dc402.png)
 
 ```bash
 export SCALA_HOME=/home/hadoop/program/scala-2.12.15
@@ -289,7 +289,7 @@ export SPARK_HOME=/home/hadoop/program/spark-3.5.0-bin-hadoop3
 export PATH=$SPARK_HOME/bin:$SPARK_HOME/sbin:$SCALA_HOME/bin:$PATH
 ```
 
-![Spark verification](https://i-blog.csdnimg.cn/blog_migrate/b39c8532db6e16f9ec4af0e3b5b60209.png)
+![Spark verification](/images/blog/hadoop/b39c8532db6e16f9ec4af0e3b5b60209.png)
 
 ## 1.9 Spark on YARN
 
@@ -301,11 +301,11 @@ source ~/.bashrc
 vi "$HADOOP_CONF_DIR/yarn-site.xml"
 ```
 
-![Spark-on-YARN setup, distribution, and test 1](https://i-blog.csdnimg.cn/blog_migrate/988e23ec9c1bc5c2cb776de944518fbb.png)
+![Spark-on-YARN setup, distribution, and test 1](/images/blog/hadoop/988e23ec9c1bc5c2cb776de944518fbb.png)
 
-![Spark-on-YARN setup, distribution, and test 2](https://i-blog.csdnimg.cn/blog_migrate/3ef5236a1afce239f9ffc82f5f36fcf5.jpeg)
+![Spark-on-YARN setup, distribution, and test 2](/images/blog/hadoop/3ef5236a1afce239f9ffc82f5f36fcf5.jpeg)
 
-![Spark-on-YARN setup, distribution, and test 3](https://i-blog.csdnimg.cn/blog_migrate/9136817203a0f1cf304a04e61fbfc485.jpeg)
+![Spark-on-YARN setup, distribution, and test 3](/images/blog/hadoop/9136817203a0f1cf304a04e61fbfc485.jpeg)
 
 ## 1.10 Python installation
 
@@ -330,7 +330,7 @@ Check the `PATH` definitions in `~/.bashrc`, then reload them:
 source ~/.bashrc
 ```
 
-![Command-not-found error](https://i-blog.csdnimg.cn/blog_migrate/1f833243603f0843747c2b7ca6c81b99.png)
+![Command-not-found error](/images/blog/hadoop/1f833243603f0843747c2b7ca6c81b99.png)
 
 ## Missing DataNode
 
@@ -361,7 +361,7 @@ Verify that the nodes can `ping` each other; check IP assignments, routing, fire
 
 For `error parsing conf core-site.xml`, examine the XML and logs. In the original example, the `name` element had been mistyped as `neme`; correcting it fixed the error.
 
-![Configuration parsing issue](https://i-blog.csdnimg.cn/blog_migrate/9dbc1a4a1d7b0c45dfb57e1d95df29e6.png)
+![Configuration parsing issue](/images/blog/hadoop/9dbc1a4a1d7b0c45dfb57e1d95df29e6.png)
 
 For `No route to host`, check the firewall, IP assignments and `/etc/hosts`.
 
