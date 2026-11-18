@@ -1,8 +1,8 @@
 ---
-title: "二手车数据分析与可视化"
+title: "Used Car Data Analysis and Visualization"
 date: 2024-03-30
 permalink: /blog/used-car-data-analysis/
-excerpt: "使用 Python 采集二手车数据，结合数据处理、统计分析和 ECharts 可视化探索车辆价格、里程与城市车型偏好。"
+excerpt: "A hands-on used-car analysis project using Python web scraping, big-data tools, SQL-based aggregation, and HTML/ECharts visualization."
 categories:
   - Data Analysis
 tags:
@@ -12,60 +12,284 @@ tags:
   - ECharts
 ---
 
-> 本文根据我在 CSDN 于 **2024 年 3 月 30 日**首次发布的《二手车网数据分析》整理，保留项目当时的技术环境与主要分析结论。
+> An English edition of my [original used-car data analysis project on CSDN](https://blog.csdn.net/weixin_75027717/article/details/137185817), archived under **March 2024**. This article records a historical learning project. The source code retains its original placeholders and the charts describe the collected sample, not current market-wide statistics.
 
-## 项目简介
+# Introduction
 
-这个项目围绕二手车市场开展数据采集、处理、分析与可视化展示，重点观察不同年份的车辆数量变化、行驶里程与价格之间的关系，以及各城市的车型偏好。
+China's used-car market has grown as car ownership and vehicle turnover have increased. As vehicles age, maintenance needs and operating costs can motivate owners to replace them. This project investigates used-car listings by collecting and analyzing data, then presenting the results visually.
 
-## 开发环境与技术
+# 1. Development environment
 
-原项目记录的工具与环境包括：
+## 1.1 JDK
 
-- **Java JDK 1.8、Maven 3.6.3、IntelliJ IDEA、Scala**；
-- **VMware、Ubuntu 16、Hadoop 2.10.2**，用于大数据开发环境搭建；
-- **Python** 的 `requests`、`parsel` 与 `csv`，用于网页数据采集与 CSV 存储；
-- **Spark、HTML 和 ECharts**，用于分析与可视化展示。
+Copy the Java directory to `C:\ProgramFiles`. Configure the system environment:
 
-这些版本是项目当时的环境记录，并不是对当前生产环境的配置推荐。
+```text
+CLASSPATH=.;C:\ProgramFiles\Java\jdk1.8.0_131\lib
+Path: C:\ProgramFiles\Java\jdk1.8.0_131\bin
+```
 
-## 数据采集
+These are the original Windows paths; use the actual installation paths on your machine.
 
-使用 Python 抓取二手车列表页信息，并将结果写入 CSV 文件。原文示例采集的字段包括：
+## 1.2 Maven
 
-| 字段 | 内容 |
-| --- | --- |
-| 标题 | 车辆名称或车型信息 |
-| 年份 | 车辆年份 |
-| 里程 | 行驶距离 |
-| 城市 | 所在城市 |
-| 价格 | 车辆报价 |
-| 标签 | 车源标签 |
-| 保修信息 | 页面展示的保修信息 |
-| 详情页 | 对应车辆详情链接 |
+Place Maven under `C:\ProgramFiles`, then add the following directory to `Path`:
 
-原代码通过 `requests` 请求列表页面，用 `parsel.Selector` 解析页面元素，再通过 `csv.DictWriter` 保存结构化结果。原文使用部分占位网址与请求头，因此这里不将该示例描述为开箱即用的爬虫。
+```text
+C:\ProgramFiles\apache-maven-3.6.3\bin
+```
 
-## 数据分析与可视化
+Check the installation with `mvn -v`.
 
-### 1. 车辆年份与数量变化
+## 1.3 IntelliJ IDEA
 
-按年份统计车辆数量，以柱状图展示变化。原项目的分析认为，样本中车辆数量在 **2021 年左右达到高点，随后下降**。这里仅保留当时对样本的观察，不将其视为整个市场的统计结论。
+Install IntelliJ IDEA, choosing a location without spaces or Chinese characters as recommended in the original notes. The source also mentions “crack file configuration”; that portion is not reproduced as an installation step. Use an appropriately licensed or free/community edition instead.
 
-### 2. 行驶里程与价格关系
+## 1.4 Scala
 
-对里程和价格进行整理，使用折线图展示。原文中的样本分析显示：**0–2 万公里**区间均价较高，**8–10 万公里**区间均价较低。车型、车龄、品牌等因素也可能影响价格。
+Within IntelliJ IDEA, navigate to **File → Settings → Plugins**, search for **Scala**, and install the plugin.
 
-### 3. 城市与车型偏好
+![Installing the Scala plugin](https://i-blog.csdnimg.cn/blog_migrate/aac4f40470bb13fa956988d624e7d3eb.png)
 
-按城市和车型汇总车辆数量，使用 **3D 柱状图**进行比较。原文观察到，大众品牌在所分析的城市样本中出现较多。
+## 1.5 VMware, Ubuntu and Hadoop
 
-### 4. 本地数据检索
+This project also documents a virtualized Hadoop 2.10.2 environment. First install **VMware Workstation 17** and **Ubuntu 16**.
 
-将采集结果转为 JSON，在 HTML 页面中实现关键词检索，便于查找对应车辆信息。
+![VMware and Ubuntu setup 1](https://i-blog.csdnimg.cn/blog_migrate/0761cad12be2fca6ad5e8118ae9a29f2.png)
 
-## 项目总结
+![VMware and Ubuntu setup 2](https://i-blog.csdnimg.cn/blog_migrate/57e2d270afb092f6c8da01105e0970ed.png)
 
-项目串联了从数据采集、结构化存储、统计处理到前端展示的基本流程，也为后续学习大数据处理与可视化工具提供了实践经验。上述结果均来自当时的项目样本与原文分析，并非对今天二手车市场的最新判断。
+Log in to Ubuntu and create the `hadoop` user. The source used the following steps:
 
-**[查看原始文章、完整代码和截图（CSDN）](https://blog.csdn.net/weixin_75027717/article/details/137185817)**
+```bash
+sudo passwd root
+sudo useradd -m hadoop -s /bin/bash
+sudo passwd hadoop
+sudo adduser hadoop sudo
+su hadoop
+```
+
+The original notes show root and user prompts; the commands above are formatted consistently for readability.
+
+Install/configure the JDK and verify it:
+
+```bash
+java -version
+```
+
+![JDK setup and version test 1](https://i-blog.csdnimg.cn/blog_migrate/612afa9e2e684d21f104e058984413b7.png)
+
+![JDK setup and version test 2](https://i-blog.csdnimg.cn/blog_migrate/a5296146f24ff42d85ef694356e429a5.png)
+
+Download Hadoop from the [Apache Hadoop website](https://hadoop.apache.org/) using Ubuntu's Firefox browser. The source uses **Hadoop 2.10.2**:
+
+```bash
+mv hadoop-2.10.2.tar.gz /home/hadoop
+tar -xvf hadoop-2.10.2.tar.gz
+```
+
+The extracted directory is `/home/hadoop/hadoop-2.10.2/`.
+
+![Downloading and extracting Hadoop 1](https://i-blog.csdnimg.cn/blog_migrate/53b32010baab07618006373fa7a295b3.png)
+
+![Downloading and extracting Hadoop 2](https://i-blog.csdnimg.cn/blog_migrate/155356ce326999892c021b41ad5f1588.png)
+
+Configure the environment using `/etc/profile` and reload it:
+
+```bash
+sudo vim /etc/profile
+source /etc/profile
+hadoop version
+```
+
+The source supplies the detailed profile values in the screenshot rather than as copyable text.
+
+![Environment profile and Hadoop version output 1](https://i-blog.csdnimg.cn/blog_migrate/405c995b71be9122b1159773ca1fc643.png)
+
+![Environment profile and Hadoop version output 2](https://i-blog.csdnimg.cn/blog_migrate/68903b4bf20ed656902dbbb5702d328b.png)
+
+![Environment profile and Hadoop version output 3](https://i-blog.csdnimg.cn/blog_migrate/a576ad4d5f63ccdfd72767f2643acc07.png)
+
+# 2. Project design
+
+The original project covers four connected activities:
+
+1. **Data collection:** scrape structured used-car listing information with Python.
+2. **Data processing:** organize the collected data into usable tables or CSV/JSON formats.
+3. **Data analysis:** calculate listing counts and relationships between vehicle age, mileage, price and city.
+4. **Visualization:** display analytical results through HTML and chart components such as ECharts.
+
+# 3. Implementation
+
+## 3.1 Collecting vehicle listings with Python
+
+The following is the **original illustrative script**, reformatted without replacing its placeholder domain, Cookie or User-Agent. Those placeholders mean it is **not immediately runnable**. For real collection, comply with website rules, robots policies and applicable privacy requirements.
+
+```python
+import csv
+
+import requests
+import parsel
+
+f = open('datacar.csv', mode='a', encoding='utf-8', newline='')
+csv_writer = csv.DictWriter(f, fieldnames=[
+    '标题',
+    '年份',
+    '里程',
+    '城市',
+    '价格',
+    '标签儿',
+    '保修又没',
+    '详情页',
+])
+csv_writer.writeheader()
+
+for page in range(1, 51):
+    print(f'=======ciajidi{page}yedeshujuneiron======')
+    headers = {
+        'Cookie': '......',
+        'User-Agent': '......'
+    }
+    url = f'https://..........com/all/?page={page}&'
+    response = requests.get(url=url, headers=headers)
+    html_data = response.text
+    print(response)
+    selector = parsel.Selector(html_data)
+    lis = selector.css('.Content_left .gongge_ul li')
+
+    for li in lis:
+        title = li.css('.title::attr(title)').get()
+        car_info = li.css('.gongge_main p i::text').getall()
+        year = car_info[0]
+        mileage = car_info[1]
+        city = car_info[2].strip()
+        label = li.css('.car_tag em::text').get().strip()
+        tag = li.css('.tc_label::text').get()
+        price = li.css('.Total::text').get()
+        href = li.css('.title::attr(href)').get()
+
+        dit = {
+            '标题': title,
+            '年份': year,
+            '里程': mileage,
+            '城市': city,
+            '价格': price,
+            '标签儿': label,
+            '保修又没': tag,
+            '详情页': href,
+        }
+        csv_writer.writerow(dit)
+        print(title, year, mileage, city, price, label, tag, href)
+```
+
+The collected fields are the vehicle title, year, mileage, city, price, listing tags, warranty label and detail-page URL. The original script writes these records to `datacar.csv`. It assumes a particular page structure and nonempty selector results, so an actual implementation would require appropriate error handling, selectors and credentials.
+
+## 3.2 Functional design and visualization
+
+### Analysis 1: Used-car listing trends by year
+
+**Input:** `year`  
+**Output:** `year`, `count`  
+**Visualization:** bar chart
+
+Count vehicles within the selected year range. The original implementation describes using SQL to aggregate data and converting the results to JSON for HTML/chart rendering.
+
+**Data processing and analysis code screenshots:**
+
+![Yearly listing aggregation 1](https://i-blog.csdnimg.cn/blog_migrate/f53730f75a902fb331288b78c135b8c0.png)
+
+![Yearly listing aggregation 2](https://i-blog.csdnimg.cn/blog_migrate/b4cda0b8ff3faa06f14f91efc1d0e734.png)
+
+**HTML visualization code:**
+
+![Yearly trend visualization code](https://i-blog.csdnimg.cn/blog_migrate/736989b5ce2ca22c10d64c86d09b07b7.png)
+
+**Visualization result:**
+
+![Used-car trend bar chart](https://i-blog.csdnimg.cn/blog_migrate/042021f3e170e55b5eb0f65d98f49037.png)
+
+**Original interpretation:** The observed sample peaks around **2021**, followed by a decline. The original author speculated that pandemic-related circumstances could have affected this trend. This is a sample-level observation, not proof of a market-wide causal relationship; listing counts are also not necessarily completed vehicle sales.
+
+### Analysis 2: Mileage and vehicle price
+
+**Input:** `mileage`, `price`  
+**Output:** `mileage`, `price`  
+**Visualization:** line chart
+
+Read the mileage and price fields, order or group records by mileage, and prepare the results using SQL/JSON for visualization.
+
+**Data-processing code:**
+
+![Mileage and price analysis code 1](https://i-blog.csdnimg.cn/blog_migrate/5e206aa8fa5c000371f319b50bac9111.png)
+
+![Mileage and price analysis code 2](https://i-blog.csdnimg.cn/blog_migrate/8a3c179b4c72757cdfead7fe053318b4.png)
+
+**HTML chart code:**
+
+![Mileage-price visualization implementation](https://i-blog.csdnimg.cn/blog_migrate/a22abd2ce67d8ebdd62f4eca1434841d.png)
+
+**Visualization result:**
+
+![Mileage and vehicle price chart](https://i-blog.csdnimg.cn/blog_migrate/b21d6b428864090727bd92115eb0c6dd.png)
+
+**Original interpretation:** The sample's lowest average listed price appeared in the **80,000–100,000 km** interval, while the highest appeared in **0–20,000 km**. Vehicle model, model year and brand may also influence prices, so this should not be interpreted as a controlled estimate of mileage's causal effect.
+
+### Analysis 3: Preferred vehicle models by city
+
+**Input:** `city`, `title`, `count`  
+**Output:** `city`, `title`, `count`  
+**Visualization:** 3D bar chart
+
+Aggregate the number of vehicles for each city/model combination and transform SQL results into JSON for the chart.
+
+**Data-processing code:**
+
+![City and vehicle model aggregation 1](https://i-blog.csdnimg.cn/blog_migrate/7cf732455427a7d7f67a07b2c80e0dde.png)
+
+![City and vehicle model aggregation 2](https://i-blog.csdnimg.cn/blog_migrate/b300f08068a56a617477b0461d94e547.png)
+
+**HTML visualization code:**
+
+![3D chart implementation 1](https://i-blog.csdnimg.cn/blog_migrate/9a8b7982c9c2e25a5456adab502fe171.png)
+
+![3D chart implementation 2](https://i-blog.csdnimg.cn/blog_migrate/8566528a20c5d53ecff2957b6be37432.png)
+
+![3D chart implementation 3](https://i-blog.csdnimg.cn/blog_migrate/fed62eea8a7da18d887d8e2c633a7c0c.png)
+
+**Visualization result:**
+
+![City and brand distribution 3D chart](https://i-blog.csdnimg.cn/blog_migrate/352dfe7cc4c9e2d8d9b55ab17313086e.png)
+
+**Original interpretation:** Volkswagen appeared most frequently across the cities in the analyzed listings. Listing frequency does not establish completed sales volume or consumer preferences for the wider population.
+
+### Analysis 4: Additional web data collection
+
+The source also documents collecting listings from [Taoche's Zhengzhou site](https://zhengzhou.taoche.com/) using Python in PyCharm. The code and resulting console output are preserved in the screenshots.
+
+![Additional Python collection code and output 1](https://i-blog.csdnimg.cn/blog_migrate/5d8b4ec0190b61f4b820650d2f5d975d.png)
+
+![Additional Python collection code and output 2](https://i-blog.csdnimg.cn/blog_migrate/8c6e2c52f634d2b50c19dde668d7f22e.png)
+
+### Analysis 5: Local keyword search
+
+Convert collected records to **JSON**, load them into an HTML page and search by keyword to retrieve matching car information.
+
+**Implementation code:**
+
+![JSON search and HTML implementation 1](https://i-blog.csdnimg.cn/blog_migrate/fb7e5f61fa7483ff2c4a31e14cb276f1.png)
+
+![JSON search and HTML implementation 2](https://i-blog.csdnimg.cn/blog_migrate/96ec6a3a6a139d52e26c26a9ca564bd6.png)
+
+![JSON search and HTML implementation 3](https://i-blog.csdnimg.cn/blog_migrate/066cb652e37ed64d02bf4001c22f7454.png)
+
+**HTML interface:**
+
+![Local used-car search interface](https://i-blog.csdnimg.cn/blog_migrate/5f62cf94baee16309642e2d0b505e7fb.png)
+
+# 4. Conclusion
+
+This project brought together **IntelliJ IDEA, HTML, Spark and ECharts** with Python data collection and analysis. It provided hands-on experience with environment configuration, web scraping, data processing, SQL-based aggregation, interactive charts and searching local JSON data. The interpretations above describe the project's historical listing sample, rather than the current used-car market.
+
+---
+
+*Original article: [Used-car data analysis on my CSDN blog](https://blog.csdn.net/weixin_75027717/article/details/137185817). The source's code, screenshots and historical software versions are retained where available; prose and commentary have been translated into English.*
