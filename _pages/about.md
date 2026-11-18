@@ -11,7 +11,7 @@ I am a second-year M.Sc. student in Artificial Intelligence at the School of Com
 
 My research focuses on trustworthy medical AI, with broader interests in deep learning, machine learning, computer vision, and applied cryptography. I am particularly interested in building dependable intelligent systems for real-world settings.
 
-Outside research, I enjoy exploring the outdoors and approaching new challenges with curiosity and optimism.
+Outside research, I enjoy sharing technical insights on my [CSDN blog](https://blog.csdn.net/weixin_75027717), where I have gained over 400 followers. I also love exploring the outdoors and embracing new challenges with curiosity and optimism.
 
 News
 ====
